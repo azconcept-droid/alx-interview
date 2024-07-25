@@ -28,37 +28,26 @@ def pascal_triangle(n):
     if n == 2:
         return triangle
 
-    # If n >= 3 then pascal's triangle computation starts here
+    # If n >= 3 then pascal's triangle dynamic computation
+    # starts here
     if n >= 3:
-        # for i in range(0, n): # Print nth row of 0th indexing
-        new_row = []
-        # if i = 0 element is 1
-        new_row.append(1) # 1st edge
-        new_row.append(triangle[1][0] + triangle[1][1])
-        # if i = n - 1 element is 1
-        new_row.append(1) # 2nd edge
-        triangle.append(new_row)
-        # for n = 3 stop here
+        flag = 0
+        for i in range(0, n - 2):
+            j = 0
+            # Create new list in every iteration
+            new_row = []
+            # Beginning of new row
+            if flag == 0:
+                new_row.append(1)
+            while j <= i:
+                new_row.append(triangle[-1][j] + triangle[-1][j + 1])
+                j += 1
+            flag = 1
+            if flag == 1:
+                # End of new row
+                new_row.append(1)
+                # return flag to 0
+                flag = 0
+            triangle.append(new_row)
 
-        new_row = []
-        # if i = 0 element is 1
-        new_row.append(1) # 1st edge
-        new_row.append(triangle[2][0] + triangle[2][1])
-        new_row.append(triangle[2][1] + triangle[2][2])
-        # if i = n - 1 element is 1
-        new_row.append(1) # 2nd edge
-        triangle.append(new_row)
-        # for n = 4 stop here
-
-        new_row = []
-        # if i = 0 element is 1
-        new_row.append(1) # 1st edge
-        new_row.append(triangle[3][0] + triangle[3][1])
-        new_row.append(triangle[3][1] + triangle[3][2])
-        new_row.append(triangle[3][2] + triangle[3][3])
-        # if i = n - 1 element is 1
-        new_row.append(1) # 2nd edge
-        triangle.append(new_row)
-        # for n = 5 stop here
-            
     return triangle

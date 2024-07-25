@@ -4,6 +4,7 @@
 """
 pascal_triangle = __import__('0-pascal_triangle').pascal_triangle
 
+
 def print_triangle(triangle):
     """
     Print the triangle
@@ -13,7 +14,4 @@ def print_triangle(triangle):
 
 
 if __name__ == "__main__":
-    # triangle = [[1], [1, 1], [1, 2, 1], [1, 3, 3, 1], [1, 4, 6, 4, 1]]
-    # print_triangle(triangle)
-    print_triangle(pascal_triangle(5))
-    # pascal_triangle(3)
+    print_triangle(pascal_triangle(10))
