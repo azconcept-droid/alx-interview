@@ -18,7 +18,7 @@ def pascal_triangle(n):
 
     # If n is zero or negative return []
     if n <= 0:
-        return [[]]
+        return []
 
     # If n = 1 return [1]
     if n == 1:
