@@ -11,10 +11,18 @@ def canUnlockAll(boxes):
     # Number of boxes
     number_of_boxes = len(boxes)
 
+    # Since first box is always open only one box is true
+    if number_of_boxes == 1:
+        return True
+
     # first box is opened retreive the keys
     first_box = boxes[0]
-    keys_at_hand = [initial_key for initial_key in first_box
-                    if initial_key < number_of_boxes]
+
+    # Get initial keys at hand starting from first box
+    keys_at_hand = [0]
+    for initial_key in first_box:
+        if initial_key < number_of_boxes:
+            keys_at_hand.append(initial_key)
 
     index = 0
     # Search for the keys
@@ -27,7 +35,7 @@ def canUnlockAll(boxes):
         index += 1
 
     # Check if all boxes have been opened indexing from 0
-    if len(keys_at_hand) == number_of_boxes - 1:
+    if len(keys_at_hand) == number_of_boxes:
         return True
     else:
         return False
