@@ -16,13 +16,13 @@ def canUnlockAll(boxes):
         return True
 
     # first box is opened retreive the keys
-    first_box = boxes[0]
+    # first_box = boxes[0]
 
     # Get initial keys at hand starting from first box
     keys_at_hand = [0]
-    for initial_key in first_box:
-        if initial_key < number_of_boxes:
-            keys_at_hand.append(initial_key)
+    # for initial_key in first_box:
+    #     if initial_key < number_of_boxes:
+    #         keys_at_hand.append(initial_key)
 
     index = 0
     # Search for the keys
@@ -30,11 +30,14 @@ def canUnlockAll(boxes):
         # Open the box and the retrieve keys
         for key in boxes[keys_at_hand[index]]:
             # if key is retreived twice skip
-            if key not in keys_at_hand and key < number_of_boxes and key != 0:
+            if key not in keys_at_hand and key < number_of_boxes:
                 keys_at_hand.append(key)
         index += 1
 
     # Check if all boxes have been opened indexing from 0
+    # print("keys = ", keys_at_hand)
+    # print("total keys = ", len(keys_at_hand))
+    # print("Boxes = ", number_of_boxes)
     if len(keys_at_hand) == number_of_boxes:
         return True
     else:
