@@ -15,4 +15,4 @@ if __name__ == "__main__":
         [6, 2, 8, 6]
     ]
 
-    print(canUnlockAll(boxes))
+    print(canUnlockAll(boxes)) # True

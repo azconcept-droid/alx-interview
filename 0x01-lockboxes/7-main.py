@@ -16,4 +16,4 @@ if __name__ == "__main__":
         [4, 2, 9, 6, 6, 5, 5],
     ]
 
-    print(canUnlockAll(boxes))
+    print(canUnlockAll(boxes)) # False

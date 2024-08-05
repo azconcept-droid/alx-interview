@@ -12,4 +12,4 @@ if __name__ == "__main__":
             keys.append(m)
         boxes.append(keys)
 
-    print(canUnlockAll(boxes))
+    print(canUnlockAll(boxes)) # True
