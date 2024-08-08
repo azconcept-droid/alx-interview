@@ -24,7 +24,3 @@ def minOperations(n):
     # when n = 2 only two operations
     if n == 2:
         return 2
-    
-    # when n = 3 only three operations
-    if n == 3:
-        return 3
