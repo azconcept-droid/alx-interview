@@ -21,14 +21,10 @@ def minOperations(n):
     if n == 0 or n == 1:
         return 0
 
-    # when n = 2 only two operation
+    # when n = 2 only two operations
     if n == 2:
         return 2
     
-    index = 2
-    while True:
-        if n % index != 0:
-            index += 1
-        break
-
-    return index
+    # when n = 3 only three operations
+    if n == 3:
+        return 3
