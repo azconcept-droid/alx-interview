@@ -24,3 +24,11 @@ def minOperations(n):
     # when n = 2 only two operation
     if n == 2:
         return 2
+    
+    index = 2
+    while True:
+        if n % index != 0:
+            index += 1
+        break
+
+    return index
