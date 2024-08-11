@@ -17,10 +17,20 @@ def minOperations(n):
     Number of operations: 6
     """
 
-    # when n = 0 or 1
-    if n == 0 or n == 1:
-        return 0
+    # Initialize the number of operations
+    operations = 0
 
-    # when n = 2 only two operations
-    if n == 2:
-        return 2
+    # when n = 0 or 1 or negative
+    if n == 0 or n == 1 or n < 0:
+        return operations
+
+    # when n >= 2
+    # To get minimum operations to print 2 or more characters
+    for number in range(2, n + 1):
+        while n % number == 0:
+            # Save the operation as you transverse
+            operations += number
+            # Reduce n by the number of times
+            n = n // number
+    
+    return operations
