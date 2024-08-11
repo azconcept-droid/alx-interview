@@ -27,10 +27,12 @@ def minOperations(n):
     # when n >= 2
     # To get minimum operations to print 2 or more characters
     for number in range(2, n + 1):
+        # While n is divisible by number then it is a factor
         while n % number == 0:
             # Save the operation as you transverse
+            # sum of prime factors of n
             operations += number
             # Reduce n by the number of times
             n = n // number
-    
+
     return operations
