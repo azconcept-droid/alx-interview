@@ -4,6 +4,7 @@ Log parsing module
 """
 import sys
 
+# Initialize status codes counts
 status_code_count = {
     '200': 0,
     '301': 0,
@@ -15,19 +16,26 @@ status_code_count = {
     '500': 0,
 }
 
+# Initiliaze total size memory
 total_size = 0
 
-count = 0
-for line in sys.stdin:
+# Initialize lines count from 1
+count_lines = 1
 
-    # print("File size: {}".format(total_size))
-    if count == 10:
-        print("File size: {}".format(total_size))
-        count = 0
+# Get each lines of the logs
+for line in sys.stdin:
+    # Iterate through the keys in the dictionary above
     for key in status_code_count.keys():
-        # print(type(line.split(' ')[-2]), type(key))
+        # Extract the status code from the line of logs
         if line.split(' ')[-2] == key:
+            # store the number of time the status codes occurs
             status_code_count[key] += 1
+            # store the size of log
             total_size += int(line.split(' ')[-1])
-            print("{}: {}".format(key, status_code_count[key]))
-    count += 1
+    # Count the number of lines up to 10
+    if count_lines % 10 == 0:
+        # Print to stdout
+        sys.stdout.write("File size: {}\n".format(total_size))
+        for key, val in status_code_count.items():
+            sys.stdout.write("{}: {}\n".format(key, val))
+    count_lines += 1
