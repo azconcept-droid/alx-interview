@@ -37,5 +37,7 @@ for line in sys.stdin:
         # Print to stdout
         sys.stdout.write("File size: {}\n".format(total_size))
         for key, val in status_code_count.items():
+            if val == 0:
+                continue
             sys.stdout.write("{}: {}\n".format(key, val))
     count_lines += 1
