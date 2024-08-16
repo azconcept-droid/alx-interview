@@ -10,10 +10,10 @@ import sys
 # 166.51.143.15 - [2024-08-15 11:17:24.558030] "GET /projects/260 HTTP/1.1" 401 46
 
 count = 0
+
 for line in sys.stdin:
 
     if count == 10:
         break
-    for x in line.split(' '):
-        print(x)
+    print("File size: {}".format(line.split(' ')[-1])
     count += 1
