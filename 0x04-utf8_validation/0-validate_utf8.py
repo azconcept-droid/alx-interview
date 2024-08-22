@@ -6,6 +6,9 @@
 def validUTF8(data):
     """ this method validate if a data is a valid utf-8 encoding"""
 
+    # Empty data
+    if len(data) == 0:
+        return False
     # Initialize number of bytes to be 0 - 1-byte
     num_of_bytes = 0
 
