@@ -36,4 +36,4 @@ def validUTF8(data):
                 return False
             num_of_bytes -= 1
 
-    return True
+    return num_of_bytes == 0
