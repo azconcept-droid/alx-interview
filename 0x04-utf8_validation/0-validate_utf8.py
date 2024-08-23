@@ -11,9 +11,6 @@ def validUTF8(data):
 
     # Iterate through each character byte in the data
     for byte in data:
-        # check if byte is an integer
-        if not isinstance(byte, int):
-            return False
         # convert to 8-bits binary
         binary = format(byte, '08b')
 
