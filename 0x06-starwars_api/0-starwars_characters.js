@@ -14,18 +14,23 @@ request(url, function (err, response, body) {
 
     const characterUrl = results[movieId].characters;
 
-    const length = results[movieId].characters.length;
-
-    for (let i = 0; i < length; i++) {
-      request(characterUrl[i], (err, res, body) => {
-        if (err) {
-          console.log(err);
-        } else {
-          const name = JSON.parse(body).name;
-
-          console.log(name);
-        }
+    const urlPromises = characterUrl.map((url) => {
+      return new Promise((resolve, reject) => {
+        request(url, (err, res, body) => {
+          if (err) {
+            reject(err);
+          } else {
+            resolve(JSON.parse(body).name);
+          }
+        });
       });
-    }
+    });
+    Promise.all(urlPromises).then((names) => {
+      names.forEach((name) => {
+        console.log(name);
+      });
+    }).catch((err) => {
+      console.log(err);
+    });
   }
 });
