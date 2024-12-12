@@ -4,5 +4,5 @@
 
 
 def isWinner(x, nums):
-  """ determines who wins the game """
-  pass
+    """ determines who wins the game """
+    pass
